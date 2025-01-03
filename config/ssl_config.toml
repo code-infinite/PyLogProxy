@@ -1,0 +1,34 @@
+# SSL Certificate Fields Configuration
+[ssl_certificate]
+common_name = "LocalHost Root CA"              # Common Name (CN)
+organization = "LocalHost"                     # Organization (O)
+organizational_unit = "IT Department"          # Organizational Unit (OU)
+locality = "NA"                                # Locality (L)
+state = "NA"                                   # State (ST)
+country = "IN"                                 # Country (C)
+email = "mail@localhost.com"                   # Email address
+
+# Certificate validity period
+[ssl_certificate.validity]
+validity_seconds = 315360000                   # 10 years
+
+# Optional: SSL Certificate private key settings
+# ------------------------------------------------------------------------------------
+# Key Type     Integer Value	    Description
+# ------------------------------------------------------------------------------------
+# EVP_PKEY_RSA	6	                RSA key for encryption, signing, etc.
+# EVP_PKEY_DSA	116	                DSA key for digital signatures
+# EVP_PKEY_DH	5	                Diffie-Hellman key for key exchange
+# EVP_PKEY_EC	408	                Elliptic Curve key for elliptic curve cryptography
+# ------------------------------------------------------------------------------------
+[ssl_private_key]
+key_algorithm = 6 
+key_size = 4096                               # e.g., N-bit key
+
+[ssl_digest]
+digest = "sha512"
+
+[certificate]
+certificate_name="pylogproxy_cert.pem"
+private_key_name="pylogproxy_pkey.pem"
+
